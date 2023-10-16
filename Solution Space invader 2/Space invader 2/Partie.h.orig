@@ -1,0 +1,32 @@
+#pragma once
+/*
+	Vous pouvez modifier cette classe.
+*/
+class Partie
+{
+	static unsigned short nbTourDeBoucle;
+	static unsigned short nbSecondes;
+	static unsigned short nbMinutes;
+<<<<<<< HEAD
+=======
+	static unsigned short score;
+	unsigned short timerSpawn;
+>>>>>>> 41c27efe1d6c9dd38abdb304fc87463ff59e89cc
+	static unsigned short calcPosition;
+	static unsigned short sleepNiveau;
+	unsigned short banqueMunitionLazer;
+	unsigned short nbExtraterrestre;
+
+
+public:
+	Partie();
+	void debuter();
+	void gagner();
+	void perdu();
+	void timer();
+	void swichButtonsGagnerPerdu();
+	void setSleepNiveau(unsigned short sleepNiveau);
+	unsigned short getBanqueMunitionLazer()const;
+	
+};
+

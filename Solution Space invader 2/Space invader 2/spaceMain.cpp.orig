@@ -1,0 +1,60 @@
+/*
+	Vous pouvez modifier ce fichier.
+*/
+#include <iostream>
+#include "Partie.h"
+#include <Windows.h>
+#include "Menu.h"
+#include"EnumChoixMenu.h"
+#include "UIKit.h"
+using namespace std;
+void programmeRun();
+int main() {
+	programmeRun();
+	return 0;
+}
+
+void programmeRun() {
+	bool programmeRun = true;
+	Partie* partie = new Partie();
+<<<<<<< HEAD
+	//Menu::afficherTitle();
+	//Menu::intro();
+	
+
+=======
+	Menu::afficherTitle();
+	Menu::intro();
+>>>>>>> 22fde58434d30f49677f3494003e20f45858107d
+	unsigned short  choixNiveau = 1;
+	do
+	{
+		Partie sleepNiveau;
+		
+		
+		UIKit::setDimensionFenetre(0, 0, 115,40);
+
+		 unsigned short resutatChoix = Menu::choixMenu();
+		 sleepNiveau.setSleepNiveau(choixNiveau);
+		switch (resutatChoix)
+		{
+		case ChoixMenu::DEMARRER_PARTIE:
+			partie->debuter();
+			break;
+		case ChoixMenu::CHANGER_NIVEU:
+			choixNiveau = Menu::niveauDifficulter();
+			break;
+		case ChoixMenu::MODE_D_EMPLOI:
+			Menu::modeDEmploi();
+			break;
+		case ChoixMenu::QUITTER:
+			std::cout << "Au revoir !";
+			programmeRun = false;
+			break;
+		default: std::cout << "Choix non valide " << std::endl;
+			break;
+		}
+
+	} while (programmeRun);
+	delete partie;
+}

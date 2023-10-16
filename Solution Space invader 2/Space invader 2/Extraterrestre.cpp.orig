@@ -1,0 +1,61 @@
+#include "Extraterrestre.h"
+#include "UIKit.h"
+#include <iostream>
+#include <time.h>
+#include"Partie.h"
+#include "Laser.h"
+
+
+unsigned short Extraterrestre::nbExtraterrestre = 0;
+Extraterrestre::Extraterrestre(Coord coord, char apparence, unsigned short valeurPoints) : ObjetDeJeu(coord, TypeObjetDeJeu::OBJ_EXTRATERRESTRE), apparence(apparence), valeurPoints(valeurPoints) {
+	this->afficher();
+	
+}
+
+void Extraterrestre::effacer() {
+	UIKit::gotoXY(this->coord.getX(), this->coord.getY());
+	std::cout << " ";
+}
+
+void Extraterrestre::afficher() {
+	UIKit::gotoXY(this->coord.getX(), this->coord.getY());
+	std::cout << this->apparence;
+
+}
+
+unsigned short Extraterrestre::getValeurPoints() const
+{
+	return this->valeurPoints;
+}
+
+unsigned short Extraterrestre::getNbExtraterrestre()
+{
+	return nbExtraterrestre;
+}
+
+Extraterrestre Extraterrestre::randomSpawn()
+{
+	UIKit::color(140);
+	char apparenceAlien = '&';
+	Coord alienSpawn(rand() % 85 + 32, rand() % 5 + 1);
+	Laser laserAlien(alienSpawn, LAS_EXTRATERRESTRE);
+	Extraterrestre alien(alienSpawn, apparenceAlien, 1000);
+	laserAlien.isActif();
+	laserAlien.deplacer();
+	nbExtraterrestre++;
+	return alien;
+}
+
+
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+
+
+
+
+
+=======
+>>>>>>> 1ac08233bf3dfc7e3090c23857ae5300bb752f06
+>>>>>>> 58a745a9e1b8bf6a1414602aac6b405c6a42c74b
